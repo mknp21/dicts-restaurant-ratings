@@ -5,9 +5,13 @@
 the_file = open('scores.txt')
 def get_ratings(file):
     """ Return an alphabetized list of restaurants and their ratings"""
+    
+    ratings = {}
 
+    new_restaurant = input("Add a new restaurant to rate:")
+    new_restaurant_score = input(f"Add a rating for {new_restaurant}:")
 
-    ratings= {}
+    ratings[new_restaurant] = new_restaurant_score
 
     for line in file:
         line = line.rstrip()
@@ -22,6 +26,10 @@ def get_ratings(file):
     for item in sorted_ratings:
         print(f" {item[0]} is rated at {item[1]}")
 
-    # return ratings
-
 get_ratings(the_file)
+
+
+
+
+
+
