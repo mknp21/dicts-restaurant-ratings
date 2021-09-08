@@ -4,17 +4,24 @@
 # put your code here
 the_file = open('scores.txt')
 def get_ratings(file):
+    """ Return an alphabetized list of restaurants and their ratings"""
+
+
     ratings= {}
+
     for line in file:
         line = line.rstrip()
-        # restaurant, ratings = line.split(':')
         rest_info = line.split(':')
-        restaurant = rest_info[0]
-        rate = rest_info[1]
-        ratings[restaurant] = int(rate)
 
-    sorted_dict = sorted(ratings)
+        restaurant, rate = rest_info
+        ratings[restaurant] = rate
 
-    return sorted_dict
 
-print(get_ratings(the_file))
+    sorted_ratings = sorted(ratings.items())
+    
+    for item in sorted_ratings:
+        print(f" {item[0]} is rated at {item[1]}")
+
+    # return ratings
+
+get_ratings(the_file)
